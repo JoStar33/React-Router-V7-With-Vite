@@ -1,6 +1,6 @@
-import API from "@/constants/path";
+import API from "../constants/path";
 import instance from ".";
-import type { MovieDetail, MovieList } from "@/types/movie";
+import type { MovieDetail, MovieList } from "../types/movie";
 
 const getMovie = async ({ page }: { page: number }) => {
   const res = await instance.get(`${API.MOVIE}?page=${page}`);
@@ -14,4 +14,22 @@ const getMovieDetail = async (id: number) => {
   return data;
 };
 
-export { getMovie, getMovieDetail };
+const getMovieIdList = (): Promise<string[]> =>
+  new Promise((resolve) => {
+    setTimeout(() => {
+      resolve([
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6",
+        "68878",
+        "68879",
+        "68880",
+        "68881",
+      ]);
+    }, 500);
+  });
+
+export { getMovie, getMovieDetail, getMovieIdList };

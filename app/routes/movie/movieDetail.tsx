@@ -10,7 +10,7 @@ export default function MovieDetailPage({ loaderData }: Route.ComponentProps) {
   const { movie } = loaderData;
   return (
     <div>
-      <img src={movie.large_cover_image} alt="" />
+      <img src={movie.large_cover_image} alt={movie.title} />
     </div>
   );
 }
